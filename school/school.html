@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UK School Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: #00c3ff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #0095cc;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏫 UK School Finder</h1>
+  <div class="container">
+    <p>Enter your child’s age:</p>
+    <input type="number" id="ageInput" placeholder="Enter age">
+    <br>
+    <button onclick="findSchool()">Check School</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function findSchool() {
+      let age = document.getElementById("ageInput").value;
+      let message = "";
+
+      // Use logical AND (&&) operator
+      if (age >= 0 && age <= 3) {
+        message = "Your child should be in Nursery.";
+      } else if (age >= 4 && age <= 10) {
+        message = "Your child should attend Primary School.";
+      } else if (age >= 11 && age <= 16) {
+        message = "Your child should attend Secondary School.";
+      } else if (age >= 17 && age <= 18) {
+        message = "Your child should be in Sixth Form or College.";
+      } else if (age >= 19 && age <= 100) {
+        message = "Your child is ready for University!";
+      } else {
+        message = "Please enter a valid age.";
+      }
+
+      document.getElementById("result").innerText = message;
+    }
+  </script>
+
+</body>
+</html>
