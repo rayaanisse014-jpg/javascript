@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All JavaScript Events Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h2 { color: #333; }
+    input, select, button {
+      margin: 8px 0;
+      padding: 8px;
+      font-size: 16px;
+    }
+    #hoverBox {
+      width: 180px;
+      height: 120px;
+      background-color: lightblue;
+      text-align: center;
+      line-height: 120px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>💻 All JavaScript Event Examples</h2>
+
+  <!-- 1️⃣ Mouse Events -->
+  <h3>1. Mouse Events</h3>
+  <div id="hoverBox" onmouseover="mouseOver()" onmouseout="mouseOut()">
+    Hover Me!
+  </div>
+  <button onclick="buttonClicked()">Click Me!</button>
+
+  <!-- 2️⃣ Keyboard Event -->
+  <h3>2. Keyboard Event</h3>
+  <input type="text" id="keyInput" placeholder="Type something..." onkeyup="keyUpEvent()">
+  <p id="keyResult"></p>
+
+  <!-- 3️⃣ Change Event -->
+  <h3>3. Change Event (handleChange)</h3>
+  <input type="text" id="nameInput" placeholder="Enter your name" onchange="handleChange()">
+  <select id="fruitSelect" onchange="handleSelectChange()">
+    <option value="">-- Choose a fruit --</option>
+    <option value="🍎 Apple">Apple</option>
+    <option value="🍌 Banana">Banana</option>
+    <option value="🍇 Grapes">Grapes</option>
+  </select>
+  <p id="changeResult"></p>
+
+  <!-- 4️⃣ Form Submit Event -->
+  <h3>4. Form Submit Event</h3>
+  <form onsubmit="return formSubmit()">
+    <input type="text" id="email" placeholder="Enter your email" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- 5️⃣ Window Load Event -->
+  <h3>5. Window Load Event</h3>
+  <p id="loadMsg"></p>
+
+  <script>
+    // 1️⃣ Mouse Events
+    function mouseOver() {
+      const box = document.getElementById("hoverBox");
+      box.style.backgroundColor = "lightgreen";
+      box.innerText = "Mouse Over!";
+    }
+
+    function mouseOut() {
+      const box = document.getElementById("hoverBox");
+      box.style.backgroundColor = "lightblue";
+      box.innerText = "Hover Me!";
+    }
+
+    function buttonClicked() {
+      alert("✅ Button was clicked!");
+    }
+
+    // 2️⃣ Keyboard Event
+    function keyUpEvent() {
+      const value = document.getElementById("keyInput").value;
+      document.getElementById("keyResult").innerText = "You typed: " + value;
+    }
+
+    // 3️⃣ Change Event (handleChange)
+    function handleChange() {
+      const name = document.getElementById("nameInput").value;
+      document.getElementById("changeResult").innerText = "Hello, " + name + " 👋";
+    }
+
+    function handleSelectChange() {
+      const fruit = document.getElementById("fruitSelect").value;
+      document.getElementById("changeResult").innerText = fruit
+        ? "You selected: " + fruit
+        : "Please choose a fruit.";
+    }
+
+    // 4️⃣ Form Submit Event
+    function formSubmit() {
+      const email = document.getElementById("email").value;
+      alert("📧 Form submitted! Your email: " + email);
+      return false; // prevent real submission
+    }
+
+    // 5️⃣ Window Load Event
+    window.onload = function() {
+      document.getElementById("loadMsg").innerText = "🌍 Page loaded successfully!";
+    };
+  </script>
+
+</body>
+</html>
